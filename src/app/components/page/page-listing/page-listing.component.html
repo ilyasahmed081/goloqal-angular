@@ -1,0 +1,39 @@
+<div class="page-listing">
+  <div class="container">
+    <div class="heading-bar">
+      <div class="row">
+        <div class="col-12 col-md-8 col-lg-8">
+          <div class="heading">
+            <h1>My Page</h1>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <div class="dropdown">
+            <form [formGroup]="programForm">
+              <div class="form-group">
+                <select class="form-control c-dropdown" formControlName="category_id">
+                  <option [value]="item.id" *ngFor="let item of categories">{{item.name}}</option>
+                </select>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-section">
+    <div class="row">
+      <div class="col-12">
+        <div class="heading">
+          <h1>Places / Communities</h1>
+        </div>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 mt-4" *ngFor="let item of placesCommunities">
+          <app-custom-card [data]="item" (click)="view(item)"></app-custom-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

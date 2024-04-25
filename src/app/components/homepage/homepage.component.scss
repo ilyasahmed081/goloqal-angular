@@ -1,0 +1,144 @@
+@import '../../../styles.scss';
+
+.banner{
+  img{
+    width: 100%;
+    height: 45vh;
+    object-fit: cover;
+    object-position: center;
+    @include respond(tablet){
+      height: 35vh;
+    }
+    @include respond(mobile){
+      height: 25vh;
+    }
+  }
+}
+
+.homepage {
+  padding:  3% 0 5% 0;
+  @include respond(mobile){
+   padding-top: 7%;
+  }
+  .top-heading-bar {
+    // padding-top: 5%;
+    h1 {
+      font-weight: 600;
+      font-size: 45px;
+      letter-spacing: .1px;
+      color: $black;
+      @include respond(mobile){
+        font-size: 31px;
+      }
+    }
+    p {
+      font-weight: 400;
+      font-size: 22px;
+      color: $lightBlack;
+      letter-spacing: .1px;
+      padding-top: 5px;
+      @include respond(mobile){
+        font-size: 20px;
+        padding-top: 11px;
+      }
+    }
+  }
+
+  .search-bar {
+    margin-top: 35px;
+  }
+  .page-section {
+    padding-top: 5%;
+    @include respond(mobile) {
+      padding-top: 12%;
+    }
+    .heading {
+      h1 {
+        font-weight: 600;
+        font-size: 40px;
+        letter-spacing: .1px;
+        color: $black;
+        @include respond(mobile) {
+          font-size: 26px;
+        }
+      }
+      p {
+        font-weight: 400;
+        font-size: 22px;
+        color: $lightBlack;
+        letter-spacing: .1px;
+        padding-top: 10px;
+        @include respond(mobile) {
+          font-size: 18px;
+          padding-top: 6px;
+        }
+      }
+    }
+  }
+
+  .explore{
+    padding-top: 6%;
+    @include respond(mobile) {
+      padding-top: 13%;
+    }
+    .heading {
+      h1 {
+        font-weight: 600;
+        font-size: 40px;
+        letter-spacing: .1px;
+        color: $black;
+        @include respond(mobile) {
+          font-size: 26px;
+        }
+      }
+    }
+    .top{
+      padding-top: 15px;
+      @include respond(tablet) {
+        padding-top: 5px;
+      }
+      .inner{
+        padding-top: 25px;
+        cursor: pointer;
+        img{
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 5px;
+          @include respond(mobile) {
+            width: 50px;
+            height: 50px;
+          }
+        }
+        h6{
+          font-weight: 600;
+          font-size: 15px;
+          padding-top: 10px;
+          @include respond(mobile) {
+            font-size: 13px;
+          }
+        }
+        p{
+          font-size: 13px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.explore {
+  .categories {
+    height: 280px;
+    overflow-y: auto;
+    padding-bottom: 100px;
+    .innerdiv1 {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.9) 50%, rgba(0, 0, 0, 0) 100%);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import '../../../../styles.scss';
+
+.near-by-page {
+  padding:  4% 0;
+  @include respond(mobile){
+    padding:  6% 0;
+  }
+  .shops-section {
+    .heading {
+      h1 {
+        font-weight: 600;
+        font-size: 30px;
+        letter-spacing: .1px;
+        color: $black;
+        @include respond(mobile){
+          font-size: 26px;
+        }
+      }
+      p {
+        font-weight: 400;
+        font-size: 22px;
+        color: $lightBlack;
+        letter-spacing: .1px;
+        padding-top: 10px;
+      }
+    }
+  }
+}

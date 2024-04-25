@@ -1,0 +1,86 @@
+<div class="banner">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let item of sliders; let i = index" [ngClass]="{'active': i == 0}">
+        <img class="d-block" src="{{item.image}}">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<div class="homepage">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="top-heading-bar">
+          <h1>Find Local Stuff to Do in {{selectedCountry?.name}}</h1>
+          <p>The new experience near you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <app-search-bar (onSelectedCountry)="getSelectedCountry($event)"></app-search-bar>
+    </div>
+
+    <div class="explore" *ngIf="categories?.length > 0">
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12">
+          <div class="heading">
+            <h1>Explore Categories</h1>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="top">
+            <div class="row categories">
+              <div class="col-6 col-md-4 col-lg-3" *ngFor="let item of categories" (click)="onCategoryClick(item)">
+                <div class="inner">
+                  <div class="row">
+                    <div class="col-4">
+                      <img src={{item.image}}>
+                    </div>
+                    <div class="col-8">
+                      <h6>{{item.name}}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- for opacity  -->
+              <div class="innerdiv1"><div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-section" *ngFor="let pageSec of topicWiseData">
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12">
+          <div class="heading">
+            <h1>{{pageSec.name}}</h1>
+            <p>Nearest {{pageSec.name}}</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mt-4" *ngFor="let item of pageSec.data">
+          <app-custom-card [data]="item" (click)="view(item)"></app-custom-card>
+        </div>
+
+        <div class="col-12 col-md-12" *ngIf="pageSec.data.length == 0">
+          <div class="no-data">
+            <img src="assets/img/no-data.png" alt="no-data">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

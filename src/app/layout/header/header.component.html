@@ -1,0 +1,78 @@
+<div class="header py-3">
+  <div class="container">
+      <div class="toggleContainer" (click)="toggleMenu()" [ngClass]="{'change': toggleButton}">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">
+          <div class="logo">
+            <a class="text-pinkgradient" routerLink="/homepage">GOLOQAL</a>
+          </div>
+        </div>
+
+        <div class="col-10">
+          <div class="nav">
+            <ul>
+              <li *ngIf="user?.id"><a class="text-uppercase" routerLink="/page/page-listing">My Page</a></li>
+              <li *ngIf="user?.id"><a class="text-uppercase" routerLink="/for-you">For You</a></li>
+              <li *ngIf="user?.id"><a class="text-uppercase" routerLink="page/create-page">Create Page</a></li>
+
+              <li *ngIf="!user?.id"><a class="text-uppercase" routerLink="/auth/login">SIGN IN</a></li>
+              <li *ngIf="!user?.id"><a class="text-uppercase" routerLink="/auth/signup">JOIN</a></li>
+              <li *ngIf="user?.id">
+                <div class="user-img" routerLink="/auth/edit-profile">
+                  <img src="{{user.avatar}}">
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="sidebar side" [ngClass]="{'show': sidebar}">
+  <ul *ngIf="user?.id">
+    <li *ngIf="user.user_type == 'admin'">
+      <a (click)="toggleMenu()" routerLink="/admin">
+        Admin Controls
+      </a>
+    </li>
+    <li>
+      <a (click)="toggleMenu()" routerLink="/page/create-page">
+        Create Page
+      </a>
+    </li>
+    <li>
+      <a (click)="toggleMenu()" routerLink="/blogs/create-blog">
+        Write Blog
+      </a>
+    </li>
+    <li>
+      <a (click)="toggleMenu()" routerLink="/for-you">
+        For You
+      </a>
+    </li>
+    <li>
+      <a (click)="toggleMenu()" routerLink="/categories/add-category">
+        Add Category
+      </a>
+    </li>
+    <li>
+      <a (click)="toggleMenu()" routerLink="/auth/edit-profile">
+        Profile
+      </a>
+    </li>
+  </ul>
+
+  <div class="press text-center mt-5">
+    <a class="c-btn pink mr-2" *ngIf="!user?.id" (click)="toggleMenu()" routerLink="/auth/login">Sign In</a>
+    <a class="c-btn green" *ngIf="!user?.id" (click)="toggleMenu()" routerLink="/auth/signup">Register</a>
+    <a class="c-btn pink" *ngIf="user?.id" (click)="logout()">Logout</a>
+  </div>
+</div>
+
+<div class="fade-area" [ngClass]="{'show': fadeSection}" (click)="toggleMenu()"></div>

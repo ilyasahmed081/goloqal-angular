@@ -1,0 +1,32 @@
+<div class="search-bar ">
+  <div class="row">
+
+    <div class="col-10 col-md-11 col-lg-8">
+      <div class="search-input">
+        <input type="text" placeholder="Search anything you want...">
+      </div>
+    </div>
+
+    <div class="col-12 col-md-12 col-lg-3">
+      <div class="custom-dropdown">
+        <p (click)="showOptionsToggle()">
+          <i class="fas fa-map-marker-alt text-pinkgradient"></i>
+          <span class="ml-4">{{selectedOption?.name}}</span>
+          <i class="fas arrow" [ngClass]="{'fa-chevron-up': showOptions, 'fa-chevron-down': !showOptions}"></i>
+        </p>
+        <div class="options mt-2" [ngClass]="{'show': showOptions}">
+          <ul>
+            <li (click)="showOptionsToggle(city)" *ngFor="let city of cities">{{city.name}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-2 col-md-1 col-lg-1 change">
+      <div class="search-icon">
+        <a><i class="fas fa-search"></i></a>
+      </div>
+    </div>
+
+  </div>
+</div>

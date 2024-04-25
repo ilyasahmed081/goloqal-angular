@@ -1,0 +1,45 @@
+<div class="blog-listing">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12">
+        <h1>Blogs</h1>
+      </div>
+
+      <div class="col-12">
+        <div class="cards">
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-6" *ngFor="let item of blogs" routerLink="/blogs/blog-details">
+              <div class="cards-inner" (click)="view(item)">
+                <img src="{{item.image}}">
+                <div class="wrapper">
+                  <h6>{{item.blogTitle}}</h6>
+                  <div class="mt-4">
+                    <a class="c-btn pink">{{searchCategory(item.category_id)}}</a>
+                  </div>
+                  <p>{{item.description}}</p>
+                  <div class="read">
+                    <a href="#">Read On <i class="fas fa-chevron-right"></i></a>
+                    <p>{{readingTime(item.description, item.content)}} mins Read</p>
+                  </div>
+                  <div class="bottoms">
+                    <div class="row">
+                      <div class="col-2">
+                        <img src="{{item.user.avatar}}">
+                      </div>
+                      <div class="col-10">
+                        <h6>{{item.user.fullName}}</h6>
+                        <p>{{item.createdAt | date: 'medium'}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

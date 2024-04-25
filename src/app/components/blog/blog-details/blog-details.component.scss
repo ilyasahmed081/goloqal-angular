@@ -1,0 +1,102 @@
+@import '/src/styles.scss';
+
+.blog-detail{
+  padding: 30px 0;
+  h6{
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .seprator{
+    background-color: $tripleC;
+    width: 11%;
+    height: 2px;
+    margin-top: 4px;
+    @include respond(tablet) {
+      width: 19%;
+    }
+    @include respond(mobile) {
+      width: 33%;
+    }
+  }
+  h3{
+    padding-top: 25px;
+    font-weight: bold;
+    font-size: 35px;
+  }
+  .user-line{
+    margin-top: 10px;
+    @include respond(tablet) {
+      margin-top: 15px;
+    }
+    @include respond(mobile) {
+      margin-top: 20px;
+    }
+    img{
+      width: 40px;
+      height: 40px;
+      border-radius: 30px;
+      object-fit: cover;
+      object-position: center;
+      @include respond(mobile) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    h6{
+      font-size: 13px;
+    }
+    p{
+      font-size: 11px;
+      color: $tripleC;
+    }
+    a{
+      font-size: 14px;
+      cursor: pointer;
+      float: right;
+      @include respond(mobile) {
+        font-size: 13px;
+      }
+    }
+  }
+  p{
+    font-size: 15px;
+  }
+  img{
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 35%);
+    @include respond(tablet) {
+      width: 70%;
+    }
+    @include respond(mobile) {
+      width: 100%;
+    }
+  }
+  h5{
+    font-weight: 500;
+    font-size: 27px;
+    padding-top: 15px;
+  }
+  .c-btn{
+    padding: 7px 13px;
+    font-size: 12px;
+  }
+  .comment{
+    padding-top: 30px;
+    .c-btn{
+      font-size: 15px;
+    }
+  }
+  .comments {
+    .delete {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+}

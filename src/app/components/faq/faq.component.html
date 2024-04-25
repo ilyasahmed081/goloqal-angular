@@ -1,0 +1,23 @@
+<div class="faq">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="heading">
+          <h4>Frequently Asked Question (FAQ)</h4>
+        </div>
+      </div>
+    </div>
+    <div class="faq-accordians">
+      <div class="row">
+        <div class="col-12">
+          <div class="accordian mb-3" *ngFor="let item of data[0]?.content; let i = index">
+            <button class="accordion" (click)="onAccordian(i)">{{item.question}}</button>
+            <div class="panel" [ngClass]="{'active': selected == i}">
+              <p>{{item.answer}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

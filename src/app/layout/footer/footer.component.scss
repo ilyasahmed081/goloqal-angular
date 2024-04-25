@@ -1,0 +1,53 @@
+@import '/src/styles.scss';
+
+.footer {
+  @include respond(mobile){
+    padding-top: 10px;
+   }
+  .footer-top-section {
+    padding-bottom: 28px;
+    padding-top: 30px;
+    border-top: 1px solid #ccc;
+    @include respond(mobile){
+      padding-top: 10px;
+      width: 100%;
+     }
+    h6 {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: .1px;
+      padding-bottom: 10px;
+      @include respond(mobile){
+       padding-top: 20px;
+       font-size: 17px;
+      }
+    }
+    a {
+      cursor: pointer;
+      display: block;
+      color: $lightBlack;
+      font-size: 15px;
+      letter-spacing: .1px;
+      padding-top: 5px;
+      &:hover {
+        background: $default;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      @include respond(mobile){
+        font-size: 16px;
+      }
+    }
+  }
+  .footer-bottom-section {
+    padding-bottom: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    p {
+      color: $darkGray;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+}

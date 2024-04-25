@@ -1,0 +1,234 @@
+<div class="shop" *ngIf="data">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12">
+        <button class="c-btn pink mb-3 float-right" (click)="edit(data)">Edit</button>
+      </div>
+
+      <div class="col-12">
+        <div class="inner row">
+          <div class="col-12 col-lg-5">
+            <div class="image">
+              <img src="{{data.image}}">
+              <div class="icon">
+                <a><i class="fas fa-external-link-alt"></i></a>
+                <a class="mr-5"><i class="fas fa-heart"></i></a>
+              </div>
+            </div>
+            <div class="gallery-images mt-3">
+              <div class="g-img" *ngFor="let item of data.galleryImages">
+                <img src="{{item}}" alt="gallery image" *ngIf="item != '0'">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-7">
+            <div class="right">
+              <div class="right-inner">
+                <div class="row justify-content-center">
+                  <h6 class="text-center">
+                    <i *ngIf="data.featured" class="fas fa-star"></i>
+                    <span>{{data.title}}</span>
+                  </h6>
+                </div>
+              </div>
+
+              <div class="name">
+                <div class="row">
+                  <div class="col-12 col-md-3 col-lg-4">
+                    <div class="plain-card">
+                      <p>START</p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-9 col-lg-8">
+                    <div class="plain-card">
+                      <div class="row" *ngIf="!data.everyDay">
+                        <div class="col-8 col-lg-8">
+                          <h6>
+                            <span class="day">{{getDayFromDate(data.startDateTime)}}</span>
+                            {{data.startDateTime | date: 'mediumDate'}}
+                          </h6>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                          <div class="row">
+                            <h6>
+                              <i class="far fa-clock"></i>
+                              {{data.startDateTime | date: 'shortTime'}}
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row" *ngIf="data.everyDay">
+                        <div class="col-12">
+                          <p>Open Everyday</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-md-3 col-lg-4">
+                    <div class="plain-card">
+                      <p>END</p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-9 col-lg-8">
+                    <div class="plain-card">
+                      <div class="row" *ngIf="!data.everyDay">
+                        <div class="col-8 col-lg-8">
+                          <h6>
+                            <span class="day">{{getDayFromDate(data.endDateTime)}}</span>
+                            {{data.endDateTime | date: 'mediumDate'}}
+                          </h6>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                          <div class="row">
+                            <h6>
+                              <i class="far fa-clock"></i>
+                              {{data.endDateTime | date: 'shortTime'}}
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row" *ngIf="data.everyDay">
+                        <div class="col-12">
+                          <p>Open Everyday</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row pt-4" *ngIf="data.everyDay && data.extraAvailability">
+                  <div class="col-12">
+                    <h5 class="text-center">
+                      <i class="fas fa-business-time pr-2 text-black-50"></i> {{data.extraAvailability}}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="buttons">
+                <a class="c-btn pink mr-3" href="{{data.button1WebsiteUrl}}" 
+                  *ngIf="data.button1WebsiteUrl">
+                  <i class="fas fa-globe-asia"></i> Website
+                </a>
+                <a class="c-btn green mr-3" href="{{data.button4LineUrl}}" 
+                  *ngIf="data.button4LineUrl && !data.button2TelephoneNumber">
+                  <i class="fab fa-line"></i> Line
+                </a>
+                <a class="c-btn green mr-3" href="tel:{{data.button2TelephoneNumber}}" 
+                  *ngIf="data.button2TelephoneNumber && !data.button4LineUrl">
+                  <i class="fas fa-phone-alt"></i> Telephone
+                </a>
+                <a class="c-btn pink mr-3" href="{{data.button3FacebookInstagramUrl}}" 
+                  *ngIf="data.button3FacebookInstagramUrl">
+                  <i class="fas fa-thumbs-up"></i> Socials
+                </a>
+                <a class="c-btn green mr-3" href="{{data.button5ChatUrl}}" 
+                  *ngIf="data.button5ChatUrl">
+                  <i class="fas fa-comments"></i> Chat
+                </a>
+                <a class="c-btn pink mr-3" href="{{data.button6TicketUrl}}" 
+                  *ngIf="data.button6TicketUrl">
+                  <i class="fas fa-ticket-alt"></i> Ticket
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="col-12">
+          <div class="plain-card">
+            <div class="row">
+              <div class="col-7">
+                <span><i class="fas fa-edit"></i>Description</span>
+              </div>
+              <div class="col-5">
+                <a [href]=data.descriptionUrl class="right">More Info<i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                <h6>{{data.description}}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="plain-card">
+            <div class="row">
+              <div class="col-6">
+                <span class="left"><i class="fas fa-map-marker"></i>Location</span>
+              </div>
+              <div class="col-6">
+                <a [href]=data.locationUrl class="right">Directions<i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+            <div class="col-12 pt-3">
+              <agm-map [latitude]="location.lat" [longitude]="location.lng">
+                <agm-marker [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+              </agm-map>
+            </div>
+            <div class="col-12">
+              <h4 class="text-center pt-3 location-typo">{{data.address1}}</h4>
+              <h6 class="text-center">{{data.address2}}</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12" *ngIf="data.products.length > 0">
+          <div class="plain-card">
+            <div class="row">
+              <div class="col-8">
+                <span class="left"><i class="fas fa-users"></i>Top Products</span>
+              </div>
+              <div class="col-4">
+                <a class="right">All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="products">
+                <div class="row">
+                  <div class="col-6 col-md-6 col-lg-3" *ngFor="let item of data.products">
+                    <div class="item">
+                      <img src="{{item.image}}">
+                      <p class="pt-2 text-truncate">{{item.name}}</p>
+                      <p class="price">$ {{item.price}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12" *ngIf="user">
+          <div class="plain-card">
+            <span class="left"><i class="fas fa-user"></i>Page Creator</span>
+            <div class="col-12">
+              <div class="text-center pt-3">
+                <img src="{{data?.created_by?.avatar}}">
+                <p class="mini py-2">created by</p>
+                <p>{{data?.created_by?.fullName}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 mt-5" *ngIf="newPage">
+          <a class="c-btn pink mr-3" routerLink="/homepage">Cancel</a>
+          <a class="c-btn green mr-3" (click)="createPage()" *ngIf="!data.isEdit">Create Page</a>
+          <a class="c-btn green mr-3" (click)="updatePage()" *ngIf="data.isEdit">Update Page</a>
+        </div>
+      </div>
+    </div>
+  </div>

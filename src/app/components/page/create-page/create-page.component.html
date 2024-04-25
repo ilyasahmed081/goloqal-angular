@@ -1,0 +1,282 @@
+<div class="create-shop">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-10">
+        <div class="heading">
+          <h1>Create Page</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-10">
+        <form [formGroup]="programForm">
+          <div class="plain-card">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Select Topic</label>
+                  <select class="form-control c-dropdown" formControlName="topic_id" (change)="onChangeTopic($event)">
+                    <option [value]="0">Select Topic</option>
+                    <option [value]="item.id" *ngFor="let item of topics">{{item.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Select Category</label>
+                  <select class="form-control c-dropdown" formControlName="category_id">
+                    <option [value]="0">Select Category</option>
+                    <option [value]="item.id" *ngFor="let item of categories">{{item.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="plain-card">
+            <div class="row">
+              <div class="col-12 mb-5">
+                <app-image-uploader [ifPreviewAvailable]="editObj?.image" (previewImage)="onImagePreview($event)"></app-image-uploader>
+              </div>
+              <div class="col-3">
+                <app-image-uploader [ifPreviewAvailable]="editObj?.galleryImages[0]" (previewImage)="onGalleryImagePreview($event, 0)"></app-image-uploader>
+              </div>
+              <div class="col-3">
+                <app-image-uploader [ifPreviewAvailable]="editObj?.galleryImages[1]" (previewImage)="onGalleryImagePreview($event, 1)"></app-image-uploader>
+              </div>
+              <div class="col-3">
+                <app-image-uploader [ifPreviewAvailable]="editObj?.galleryImages[2]" (previewImage)="onGalleryImagePreview($event, 2)"></app-image-uploader>
+              </div>
+              <div class="col-3">
+                <app-image-uploader [ifPreviewAvailable]="editObj?.galleryImages[3]" (previewImage)="onGalleryImagePreview($event, 3)"></app-image-uploader>
+              </div>
+            </div>
+          </div>
+          <div class="plain-card">
+            <h2>Details</h2>
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" class="form-control" placeholder="Title" formControlName="title">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Start Date Time</label>
+                  <input type="datetime-local" class="form-control" formControlName="startDateTime">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>End Date Time</label>
+                  <input type="datetime-local" class="form-control" formControlName="endDateTime">
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="openEveryDay" formControlName="everyDay">
+                      <label class="form-check-label">
+                        Open Everyday
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="featured" formControlName="featured">
+                      <label class="form-check-label">
+                        Featured
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 pt-2">
+                <div class="form-group">
+                  <label>Extra Availability</label>
+                  <textarea class="form-control" rows="5" placeholder="Type your extra availability" formControlName="extraAvailability"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="plain-card">
+            <h2>Add Buttons</h2>
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 1 Website</label>
+                  <input type="text" class="form-control" disabled placeholder="Button 1 Website" formControlName="button1WebsiteName">
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 1 Website URL</label>
+                  <input type="text" class="form-control" placeholder="Button 1 Website URL" formControlName="button1WebsiteUrl">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 2 Call</label>
+                  <input type="text" class="form-control" disabled placeholder="Button 2 Call" formControlName="button2Call">
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 2 Telephone Number</label>
+                  <input type="text" class="form-control" placeholder="Button 2 Telephone Number" formControlName="button2TelephoneNumber">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 3 Facebook/Instagram</label>
+                  <input type="text" class="form-control" disabled placeholder="Button 3 Facebook/Instagram" formControlName="button3FacebookInstagram">
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 3 Facebook/Instagram URL</label>
+                  <input type="text" class="form-control" placeholder="Button 3 Facebook/Instagram URL" formControlName="button3FacebookInstagramUrl">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 4 Add Friends at LINE</label>
+                  <input type="text" class="form-control" disabled placeholder="Button 4 Add Friends at LINE" formControlName="button4Line">
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 4 LINE URL</label>
+                  <input type="text" class="form-control" placeholder="Button 4 LINE URL" formControlName="button4LineUrl">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 5 Chat with us</label>
+                  <input type="text" class="form-control" disabled placeholder="Button 5 Chat with us" formControlName="button5Chat">
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 5 Chat URL</label>
+                  <input type="text" class="form-control" placeholder="Button 5 Chat URL" formControlName="button5ChatUrl">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 6 Get Ticket</label>
+                  <input type="text" class="form-control" disabled placeholder="Button 6 Get Ticket" formControlName="button6Ticket">
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Button 6 Get Ticket URL</label>
+                  <input type="text" class="form-control" placeholder="Button 6 Get Ticket URL" formControlName="button6TicketUrl">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="plain-card">
+            <h2>Description & Location</h2>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea type="text" class="form-control" placeholder="Description" rows="3" formControlName="description"></textarea>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group">
+                  <!-- <label>Description URL</label> -->
+                  <input type="link" class="form-control" placeholder="Description URL" formControlName="descriptionUrl">
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label>Location</label>
+
+                <agm-map [latitude]="location.lat" [longitude]="location.lng">
+                  <agm-marker [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+                </agm-map>
+              </div>
+
+              <div class="col-12 pt-4">
+                <div class="form-group">
+                  <input class="form-control" formControlName="address1" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="locationChange($event)" placeholder="Location by Google"/>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Address 2 (Optional)" formControlName="address2">
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group">
+                  <input type="link" class="form-control" placeholder="Location URL" formControlName="locationUrl">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="plain-card" *ngIf="isShopHidden">
+            <div class="add-product">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-6">
+                  <app-image-uploader (previewImage)="onProductImagePreview($event)"></app-image-uploader>
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" placeholder="Name" formControlName="product_name">
+                  </div>
+                  <div class="form-group">
+                    <label>Price</label>
+                    <input type="number" class="form-control" placeholder="Price" formControlName="product_price">
+                  </div>
+                  <div class="btns text-center">
+                    <button class="c-btn pink mr-3" (click)="onAddProduct()">Add</button>
+                    <button class="c-btn green" (click)="onUpdateProduct()">Update</button>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="no-data" *ngIf="products.length == 0">
+                    <img src="assets/img/no-data.png" alt="no-data" />
+                    <p class="text-black-50">No Products Found.</p>
+                  </div>
+                  <div class="list-group list-group-flush wrapper" *ngIf="products.length > 0">
+                    <div class="list-group-item item list-group-item-action align-items-center" *ngFor="let item of products">
+                      <img src="{{item.image}}">
+                      <p>{{item.name}}</p>
+                      <p>${{item.price}}</p>
+
+                      <div>
+                        <a (click)="editProduct(item.id)" class="mr-2"><i class="fas fa-edit text-primary"></i></a>
+                        <a (click)="deleteProduct(item.id)"><i class="fas fa-trash text-danger"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="btns">
+          <a class="c-btn pink mr-3" routerLink="/homepage">Cancel</a>
+          <a class="c-btn green mr-3" (click)="previewPage()">Preview</a>
+          <a class="c-btn pink" *ngIf="isEdit" (click)="deletePage()">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

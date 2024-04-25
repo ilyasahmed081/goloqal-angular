@@ -1,0 +1,73 @@
+@import '../../../../styles.scss';
+
+.dashboard {
+  padding: 4% 0;
+  @include respond(mobile){
+    padding: 6% 0;
+  }
+  .heading-bar {
+    padding-bottom: 30px;
+    @include respond(mobile){
+      padding-bottom: 8px;
+    }
+    h1 {
+      font-weight: 600;
+      font-size: 35px;
+      letter-spacing: .1px;
+      color: $black;
+      @include respond(mobile){
+        font-size: 26px;
+      }
+    }
+  }
+  .admin-card {
+    height: 158px;
+    cursor: pointer;
+    @include respond(mobile){
+      margin-top: 18px;
+    }
+    h6 {
+      font-size: 17px;
+      font-weight: 500;
+      color: $lightBlack;
+      letter-spacing: .1px;
+      @include respond(mobile){
+        font-size: 18px;
+      }
+    }
+    p {
+      padding-top: 8px;
+      font-size: 30px;
+      font-weight: 600;
+      color: $black;
+      @include respond(mobile){
+        font-size: 32px;
+      }
+    }
+    i {
+      font-size: 40px;
+      float: right;
+      color: $darkGray;
+      @include respond(mobile) {
+        font-size: 50px;
+      }
+    }
+    &:hover {
+      i {
+        font-size: 55px;
+        transition: 1s;
+        -webkit-transition: 1s;
+      }
+    }
+  }
+}
+
+.admin-controls {
+  .card {
+    cursor: pointer;
+  }
+  i {
+    font-size: 20px;
+    color: $darkGray;
+  }
+}

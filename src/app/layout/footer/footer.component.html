@@ -1,0 +1,37 @@
+<div class="footer">
+    <div class="container">
+      <div class="footer-top-section">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-4">
+                <h6 class="text-pinkgradient">Company</h6>
+                <a routerLink="/about-us">About us</a>
+                <a routerLink="/contact-us">Contact us</a>
+                <a routerLink="/auth/privacy-policy">Privacy Policy</a>
+                <a routerLink="/auth/terms-conditions">Term & Conditions</a>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4">
+                <h6 class="text-pinkgradient">Follow Us</h6>
+                <a *ngIf="socials[0]?.facebook" href="{{socials[0]?.facebook}}">Facebook</a>
+                <a *ngIf="socials[0]?.twitter" href="{{socials[0]?.twitter}}">Twitter</a>
+                <a *ngIf="socials[0]?.instagram" href="{{socials[0]?.instagram}}">Instagram</a>
+                <a *ngIf="socials[0]?.pinterest" href="{{socials[0]?.pinterest}}">Pinterest</a>
+                <a *ngIf="socials[0]?.line" href="{{socials[0]?.line}}">LINE@</a>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4">
+                <h6 class="text-pinkgradient">Content</h6>
+                <a routerLink="/faq">FAQ</a>
+                <a routerLink="/blogs/blog-listing">Blog</a>
+                <a routerLink="/partner-with-us">Partner with us</a>
+                <a routerLink="/subscribe-news">Subscribe for news </a>
+            </div>
+        </div>
+      </div>
+      <div class="footer-bottom-section">
+        <div class="row">
+          <div class="col-12">
+            <p>© GOLOQAL, INC. 2021</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+@import '/src/styles.scss';
+
+.category-listing {
+	padding: 4% 0;
+  .heading {
+    padding-bottom: 3%;
+    h1 {
+      color: $black;
+      font-weight: 600;
+      font-size: 25px;
+      letter-spacing: .1px;
+    }
+  }
+  table {
+    @include respond(mobile){
+      margin-top: 5%;
+    }
+    &.table {
+      tbody {
+        td {
+          a {
+            cursor: pointer;
+            font-size: 16px;
+            &.fa-edit  {
+              color: green;
+            }
+            &.fa-trash-alt {
+              color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}
